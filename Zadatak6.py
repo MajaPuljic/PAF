@@ -36,13 +36,14 @@ def zadatak6 ():
     plt.axis('equal')
     ax.plot(x1, y1, 'r*')
     ax.plot(krug_x, krug_y, 'b*')
-    ax.plot(x, y, 'r')
+    ax.plot(x, y, 'b')
     ax.set_xlabel('X os')
     ax.set_ylabel('Y os')
     ax.set_title(ime)
     ax.grid()
 
-    ax.legend(['{}'.format(polozaj)+'\n'+'Točka A udaljena je od kružnce za'+'\n'+'{}.'.format(d2), 'Središte kružnice ', 'Kružnica.'], loc = 'best')
+    ax.legend(['Središte kružnice.','{}'.format(polozaj)+'\n'+'Izabrana točka, udaljena od kružnce za'+'\n'+'{}.'.format(d2), 'Kružnica.'], loc = 'best')
+    
 
     if ispis == 1:
         kruznica = plt.show()
