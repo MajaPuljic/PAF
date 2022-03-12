@@ -19,21 +19,25 @@ else:
     b = round((y1 - (a*x1)),2)
     print ("Jednadžba pravca je y = {}x + {}".format (a,b))
 
-x_values = np.linspace(x1,x2,100)
-y_values = np.linspace(y1,y2,100)
+def pravac():
 
-plt.xlabel(ime_xosi)
-plt.ylabel(ime_yosi)
+    x_values = np.linspace(x1,x2,100)
+    y_values = np.linspace(y1,y2,100)
 
-izbor1 = input ("Unesite 1 za prikaz grafa,\n Unesite 2 za spremanje grafa u obliku PDFa: ")
-izbor = int(izbor1)
-ime = input("Unesite ime grafa: ")
+    plt.xlabel(ime_xosi)
+    plt.ylabel(ime_yosi)
 
-if izbor == 1:
-    plt.plot(x_values,y_values)
-    plt.show()
-elif izbor == 2:
-    plt.plot(x_values,y_values) 
-    plt.savefig(ime)
-else:
-    print("Ta opcija ne postoji")
+    izbor1 = input ("Unesite 1 za prikaz grafa,\n Unesite 2 za spremanje grafa u obliku PDFa: ")
+    izbor = int(izbor1)
+    ime = input("Unesite ime grafa: ")
+
+    if izbor == 1:
+        slika = plt.plot(x_values,y_values)
+        plt.show()
+    elif izbor == 2:
+        slika = plt.plot(x_values,y_values) 
+        plt.savefig(ime)
+    else:
+        slika = False
+
+pravac()
