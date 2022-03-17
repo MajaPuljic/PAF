@@ -12,6 +12,7 @@ else:
     None
 ime = input("Unesite ime grafa: ")
 ispis = int(input("Unesite 1 ako zelite da se kruznica ispise na ekranu, a \n 2 ako ju zelite spremit u obliku PDFa: "))
+
 def zadatak6 ():
     
     theta = np.linspace(0, 2*np.pi, 1000)
