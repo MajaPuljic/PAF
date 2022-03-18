@@ -51,6 +51,8 @@ def kosi_hitac(v0,theta):
     axs[1,0].set_xlabel('$t | [s]$')
     axs[1,0].set_ylabel('$y | [m]$')
 
+    plt.title("Kosi hitac")
+
     plt.show()
 
 kosi_hitac(5,40)
