@@ -6,7 +6,7 @@ t = np.linspace(0,10,100)
 dt = 0.01 
 
 
-def graf (F,m):
+def jednoliko_gibanje (F,m):
     a = F/m
     v = 0
     x = 0
@@ -41,7 +41,7 @@ def graf (F,m):
 
     plt.show()
 
-graf(10,3)
+jednoliko_gibanje(10,3)
 
 
 
