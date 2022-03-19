@@ -44,7 +44,7 @@ def kosi_hitac(v0,theta):
     axs[0, 1].plot(t, x_lista)
     axs[0, 1].set_title('x-t graf')
     axs[0,1].set_xlabel('$t | [s]$')
-    axs[0,1].set_ylabel('$v | [m]$')
+    axs[0,1].set_ylabel('$x | [m]$')
 
     axs[1, 0].plot(t, y_lista)
     axs[1, 0].set_title('y-t graf')
