@@ -27,17 +27,15 @@ class particle:
     def __move(self):
 
         self.vy.append(self.vy[-1] + self.g*self.dt)
-        self.ylista.append(self.ylista[-1] + self.ylista[-1]*self.dt)
-        self.vx.append(self.vx[-1] + self.g*self.dt)
-        self.xlista.append(self.xlista[-1] + self.xlista[-1]*self.dt)
+        self.ylista.append(self.ylista[-1] + self.vy[-1]*self.dt)
+        self.vx.append(self.vx[-1] + 0*self.dt)
+        self.xlista.append(self.xlista[-1] + self.vx[-1]*self.dt)
 
     def range(self):
 
-        while True:
+        while self.ylista[-1] >= 0.:
             self.__move()
-
-            if self.ylista[-1] <= 0:
-                 break
+            #print(self.ylista[-1])
 
         D = (self.xlista[-1] - self.xlista[0])
 
