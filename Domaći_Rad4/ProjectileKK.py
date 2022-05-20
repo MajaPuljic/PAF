@@ -16,7 +16,7 @@ class Projectile:
         self.ax = []
         self.ay = []
 
-    def set_initial_conditions(self,v0,theta,x0,y0,m,rho,Cd,A,dt = 0.01):
+    def set_initial_conditions(self,v0,theta,x0,y0,m,rho,izbor = "/",Cd = 0,A = 0,a = 0,r = 0,dt = 0.01):
 
         kut = (theta/180)*np.pi
         self.dt = dt
@@ -26,24 +26,23 @@ class Projectile:
         self.vy.append(v0*np.sin(kut))
         self.m = m
         self.rho = rho
-        self.Cd = Cd
-        self.A = A
+        if izbor == "kocka":
+            self.A = a**2
+            self.Cd = 0.8
+        elif izbor == "kugla":
+            self.A = (r**2)*pi
+            self.Cd = 0.47
+        elif izbor == "/":
+            self.Cd = Cd
+            self.A = A
 
     def reset(self):
 
         self.__init__()
 
-    def axRK(self,v):
-
-        return (-np.sign(v)*self.rho*self.Cd*(v**2)/(2*self.m)) 
-
-    def ayRK(self,v):
-
-        return self.g ((-np.sign(v)*self.rho*self.Cd*(v**2))/(2*self.m))
-
     def __move(self):
-        self.ax.append(-np.sign(self.vx[-1])*(self.rho*self.Cd*self.A)/(2*self.m) * self.vx[-1]**2)
-        self.ay.append(self.g-np.sign(self.vy[-1])*(self.rho*self.Cd*self.A)/(2*self.m)*(self.vy[-1])**2)
+        self.ax.append(-np.sign(self.vx[-1])*(self.rho*self.Cd*self.A)* (self.vx[-1]**2)/(2*self.m))
+        self.ay.append(-self.g-np.sign(self.vy[-1])*(self.rho*self.Cd*self.A)*(self.vy[-1])**2/(2*self.m))
         self.vy.append(self.vy[-1] + self.ay[-1]*self.dt)
         self.ylista.append(self.ylista[-1] + self.vy[-1]*self.dt)
         self.vx.append(self.vx[-1] + self.ax[-1]*self.dt)
@@ -52,11 +51,11 @@ class Projectile:
 
     def axRK(self,v):
 
-        return (-np.sign(v)*self.rho*self.Cd*(v**2)/(2*self.m)) 
+        return ((-np.sign(v)*self.rho*self.Cd*(v**2)*self.A)/(2*self.m)) 
 
     def ayRK(self,v):
 
-        return self.g - ( (-np.sign(v)*self.rho*self.Cd*(v**2))/(2*self.m))
+        return  self.g -( (np.sign(v))*self.rho*self.Cd*(v**2)*self.A)/(2*self.m)
 
     def __moveRK (self):
 
@@ -98,7 +97,9 @@ class Projectile:
     
     def range(self):
 
-        return sorted (self.xlista)[-1]
-    
+        while self.ylista[-1] >=0:
+            self.__moveRK()
 
+        D = (self.xlista[-1] -self.xlista[0])
 
+        return D

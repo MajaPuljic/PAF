@@ -2,12 +2,12 @@ import Projectile as pct
 import numpy as np
 import matplotlib.pyplot as plt
 
-Cdlista = list(np.linspace(0,1,100))
+Cdlista = np.linspace(0,1,100)
 dometCD = []
 
 for i in Cdlista:
     p1 = pct.Projectile()
-    p1.set_initial_conditions(10,45,0,0,0.1,1.22,i,0.05)
+    p1.set_initial_conditions(10,60,0,0,10,1.225,i,0.63)
     dometCD.append(p1.range())
 
 plt.plot(Cdlista,dometCD)
@@ -15,12 +15,12 @@ plt.xlabel("Cd")
 plt.ylabel("domet[m]")
 plt.show()
 
-mlista = list(np.linspace(1,5,100))
+mlista = np.linspace(1,10,100)
 dometm = []
 
 for i in mlista:
     p2 = pct.Projectile()
-    p2.set_initial_conditions(10,45,0,0,i,1.22,0.1,0.05)
+    p2.set_initial_conditions(10,60,0,0,i,1.225,0.47,0.63,)
     dometm.append(p2.range())
 
 plt.scatter(mlista,dometm, s = 0.9 )
