@@ -1,7 +1,7 @@
+from decimal import ROUND_DOWN
 from math import *
 import numpy as np
 import matplotlib.pyplot as plt
-
 class Projectile:
 
     def __init__(self):
@@ -16,12 +16,17 @@ class Projectile:
         self.ax = []
         self.ay = []
 
-    def set_initial_conditions(self,v0,theta,x0,y0,m,rho,izbor = "/",Cd = 0,A = 0,a = 0,r = 0,dt = 0.01):
+        self.kutevi = []
+
+    def set_initial_conditions(self,v0,x0,y0,m,rho,theta = 60,izbor = "/",Cd = 0,A = 0,a = 0,r = 0,dt = 0.01):
 
         kut = (theta/180)*np.pi
         self.dt = dt
+        self.x0 = x0
+        self.y0 = y0
         self.xlista.append(x0)
         self.ylista.append(y0)
+        self.v0 = v0
         self.vx.append(v0*np.cos(kut))
         self.vy.append(v0*np.sin(kut))
         self.m = m
@@ -103,5 +108,32 @@ class Projectile:
         D = (self.xlista[-1] -self.xlista[0])
 
         return D
+    
+    def angle_range(self,xm,ym,r):
+        self.xm = xm
+        self.ym = ym
+        self.r = r
+        deltax = []
+        theta = np.arange(0,91,0.01)
+        for i in theta:
+            self.kut = theta*np.pi/180
+            self.kutevi.append(i)
+            self.set_initial_conditions(self.v0,self.x0,self.y0,self.m,self.rho,theta=i,Cd=self.Cd,A=self.A,)
+            while self.ylista[-1] >=0:
+                self.__moveRK()
 
+            deltax.append(self.xlista[-1]- xm)
             
+
+        plt.plot(self.kutevi,deltax)
+        plt.xlabel('$\\theta$')
+        plt.ylabel('$\\Delta$')
+        plt.show()
+        
+
+
+
+
+
+    
+    
