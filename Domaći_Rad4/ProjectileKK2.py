@@ -114,7 +114,7 @@ class Projectile:
         self.ym = ym
         self.r = r
         deltax = []
-        theta = np.arange(0,91,0.01)
+        theta = np.arange(0,90,0.01)
         for i in theta:
             self.kut = theta*np.pi/180
             self.kutevi.append(i)
@@ -124,11 +124,23 @@ class Projectile:
 
             deltax.append(self.xlista[-1]- xm)
             
-
+        print("Nultocke grafa su kutevi potrebni za pogodit metu")
         plt.plot(self.kutevi,deltax)
         plt.xlabel('$\\theta$')
         plt.ylabel('$\\Delta$')
+        plt.grid()
         plt.show()
+    
+
+
+        
+
+        
+
+        
+
+
+    
         
 
 

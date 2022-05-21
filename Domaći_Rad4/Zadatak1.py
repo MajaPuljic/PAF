@@ -9,7 +9,6 @@ pct1.plot_trajectoryRK()
 pct2 = pct.Projectile()
 pct2.set_initial_conditions(10,60,0,0,10,1.225,izbor ="kugla",r=0.45)
 pct2.plot_trajectoryRK()
-print(pct2.range())
 
 plt.plot(pct1.xlista,pct1.ylista,'r')
 plt.plot(pct2.xlista,pct2.ylista,'g')
