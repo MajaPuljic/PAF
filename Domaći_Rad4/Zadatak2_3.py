@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from math import*
 
-#Kodu trebaju 4 do 5 minuta da se izvrsi do kraja
-print("Nultocke grafa su kutevi potrebni za pogodit metu")
+#Kodu treba 4 do 5 minuta da se izvrsi do kraja
+print("Nultocke grafa su kutevi potrebni za pogodit metu, ako graf nema nultocaka zadana brzina je premala!")
 xm = 9
 ym = 0
 rm = 1
