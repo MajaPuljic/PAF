@@ -12,5 +12,6 @@ pct2.plot_trajectoryRK()
 
 plt.plot(pct1.xlista,pct1.ylista,'r')
 plt.plot(pct2.xlista,pct2.ylista,'g')
+plt.grid()
 plt.legend(["kocka","kugla"], loc = "upper left")
 plt.show()

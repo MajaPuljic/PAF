@@ -99,7 +99,7 @@ class Projectile:
     def plot_trajectoryRK(self):
         while self.ylista[-1] >=0:
             self.__moveRK()
-    
+        
     def range(self):
 
         while self.ylista[-1] >=0:
