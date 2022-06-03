@@ -1,41 +1,37 @@
 from math import *
+import numpy as np
 from re import A
 
-def three_step (f,x,h):
+def derivacija_u_tocki(f,x,h = 0.01,metoda = 3):
+    if metoda == 3:
+        der = (f(x+h) - f(x -h))/(2*h)
+    else:
+        der = (f(x +h)-f(x))/h   
+    return der
 
-    derivacija = (f(x+h) - f(x-h))/(2*h)
+def derivacija(f,d,g,h = 0.01,metoda = 3):
+    x = np.arange(d,g,h)
+    y = []
+    for i in x:
+        y.append(derivacija_u_tocki(f,i,h,metoda))
+    return (x,y)
 
-    return derivacija
+def integracija_pravokutna(f,d,g,N):
+    donjaMeda = 0
+    gornjaMeda = 0
+    dx = abs(g-d)/N
+    for i in range (0,N):
+        donjaMeda += f(i*dx) * dx
+        gornjaMeda += f((i+1)*dx) * dx
+    return gornjaMeda,donjaMeda       
 
-def two_step (f,x,h):
+def integracija_trapez(f,d,g,N):
+    integral = 0
+    dx = abs(g-d)/N
+    for i in range(0,N):
+        integral += f(i*dx) + f((i+1)*dx)
+    return (integral*dx)/2
 
-    derivacija = (f(x+h) - f(x-h))/h
-
-    return derivacija
-
-def deriviranje (f,donja_granica,gornja_granica,h, izbor = 3):
-    xlista = []
-    ylista = []
-
-    i = donja_granica
-    while i <= gornja_granica:
-        xlista.append(i)
-        i+=h
-    if izbor == 2:
-        for el in xlista:
-            derivacija = two_step(f,el,h)
-            ylista.append(derivacija)
-    elif izbor == 3:
-        for el in xlista:
-            derivacija = three_step(f,el,h)
-            ylista.append(derivacija)
-    return xlista,ylista
-
-def kubna (x):
-    return 3*x**3 - x**2 + 4*x + 2
-
-def trigonometrijska(x):
-    return sin(x) + 2*cos(2*x)
 
 
 

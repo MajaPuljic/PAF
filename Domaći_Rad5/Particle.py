@@ -72,8 +72,6 @@ class Particle:
         self.x = x0 + (1/6)*(k1x + 2 * k2x + 2 * k3x + k4x)
         self.t = self.t + dt
         
-
-        
         self.xlist.append(self.x[0])
         self.ylist.append(self.x[1])
         self.zlist.append(self.x[2])
