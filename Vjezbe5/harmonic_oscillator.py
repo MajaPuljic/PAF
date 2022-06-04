@@ -60,6 +60,25 @@ class HarmonicOscilator:
 
         plt.show()
 
+    def liste(self):
+         return self.x,self.t
+
+    def period(self):
+        period = 0
+        for i in range(1,len(self.x)):
+            if self.x[i] >= self.x[0]:
+                break
+
+            period += self.dt
+        
+        return period
+
+    def period_analiticki(self):
+        period = 2 * np.pi * sqrt(self.m / self.k)
+
+        return period
+
+
 
 
 
