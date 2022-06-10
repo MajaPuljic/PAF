@@ -1,15 +1,25 @@
 #include <iostream>
+#include <sstream>  
+#include <list>
+using namespace std;
 
-void sustav_jednadzbi(float a1, float b1, float c1, float a2, float b2, float c2){
-    float k1 = a1/a2;
-    float b = b1 - k1*b2;
-    float c = c1 - k1*c2;
-    float y = c/b;
-    float x = (c1 - b1*y)/a1;
-    std::cout << "x: " << x << "\n y: " << y <<std::endl;
-};
+void sustav(float a1,float b1, float c1, float a2, float b2, float c2){
+    float x;
+    float y;
+    if((a1*b2 - b1*a2) != 0){
+        x = (c1*b2 - b1*c2)/(a1*b2 - b1*a2);
+        y = (a1*c2 - c1*a2)/(a1*b2 - b1*a2);
+        std::cout << "(" << x << "," << y << ")";
+    }
+    else{
+        std::cout << "Jednadzba nema rijesenja.";
+    }
+    
+}
 
 int main(){
-    sustav_jednadzbi(5,3,1,2,6,7);
+
+    sustav(2, 3, 2, 2, 3, 7);
+
     return 0;
-};
+}
