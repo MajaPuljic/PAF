@@ -1,5 +1,3 @@
-
-  
 import BungeeJumping as Bg
 import matplotlib.pyplot as plt
 

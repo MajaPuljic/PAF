@@ -23,7 +23,6 @@
 				"isDefault": true
 			},
 			"detail": "compiler: /usr/bin/g++"
-		},
-		
+		}
 	]
 }

@@ -11,14 +11,14 @@ class ProjectileDrop:
         self.vx = vx
         self.xlista = [0]
         self.ylista = [h]
-        self.vx = [vx]
+        self.vx_lista = [vx]
         self.vy = [0]
 
         print ("Objekt je uspješno stvoren, početna visina aviona je: {} ".format(h),",a početna brzina je: {}".format(vx))
 
     def change_height(self,novi_h):
 
-        self.__init__(novi_h,self.vx)
+        self.__init__(novi_h,self.vx,self.dt)
     
     def accelerate (self,a = 0):
         self.vx = self.vx + a
