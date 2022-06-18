@@ -28,7 +28,7 @@ solar_system.evolve(5 * year, hour)
 fig = plt.figure(figsize = (8,8))
 
 i = 0
-while i <  2 * 24:
+while i <  20 * 24:
     plt.clf()
     plt.plot(sun.xlist, sun.ylist, label = sun.name, color = sun.color, linewidth = 5)
     plt.plot(mercury.xlist, mercury.ylist, label = mercury.name, color = mercury.color)
