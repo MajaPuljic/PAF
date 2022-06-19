@@ -13,7 +13,7 @@ mercury = universe.Planet("Mercury","orange",3.3e24, np.array([0,0.466*au]), np.
 venus = universe.Planet("Venus","red",4.8685e24, np.array([0.723*au,0]), np.array([0,35020]))
 earth = universe.Planet("Earth","green",5.9742e24, np.array([-au,0]), np.array([0,-29783]))
 mars = universe.Planet("Mars","brown",6.417e23, np.array([0,-1.666*au]), np.array([24007,0]))
-comet = universe.Planet("Comet","grey",10e14,np.array([-4.*au, 1.8*au]),np.array([16000., 0.]),)
+comet = universe.Planet("Comet","grey",10e14,np.array([-4.*au, 1.8*au]),np.array([20000., 0.]),)
 
 solar_system = universe.Universe()
 solar_system.add_planet(sun)
